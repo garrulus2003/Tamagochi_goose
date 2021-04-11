@@ -1,11 +1,11 @@
-from welcome import welcome
-
 from life import *
 import pygame
 import sys
+from welcome import GooseCreation
 
 if __name__ == "__main__":
-    goose_name = welcome()
+    welcome_screen = GooseCreation()
+    goose_name = welcome_screen.get_goose_name()
     if goose_name == "":
         sys.exit()
 
@@ -13,8 +13,6 @@ if __name__ == "__main__":
     goose.set_name(goose_name)
 
     # creating main window
-    pygame.init()
-    pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     screen.fill(ORANGE)
     pygame.display.set_caption("Гусь " + goose_name)
