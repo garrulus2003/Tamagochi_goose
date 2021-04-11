@@ -1,7 +1,8 @@
+from welcome import GooseCreation
 from life import *
 import pygame
 import sys
-from welcome import GooseCreation
+
 
 if __name__ == "__main__":
     welcome_screen = GooseCreation()
