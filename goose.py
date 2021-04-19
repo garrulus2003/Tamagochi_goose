@@ -2,6 +2,7 @@ import time
 from tkinter import *
 import tkinter
 from text_graphics import *
+import pygame
 
 pygame.init()
 pygame.mixer.init()
@@ -9,6 +10,27 @@ f = FONT = pygame.font.Font(None, 24)
 
 
 class Characteristics:
+    """
+    Class for one of the goose's characteristics (satiety, cleanliness, entertainment, talk_out)
+
+    Attributes
+    -------
+    lvl : int
+        current level of this characteristic
+    max_lvl: int
+        greatest possible value of level
+    time_passed: int
+        time passed since the button corresponding to this characteristic was pressed
+    parameter_name: str
+        noun for characteristics in russian
+    upgrade_noun: str
+        verb meaning "upgrading this characteristic"
+
+    Methods
+    -------
+    upgrade():
+        checks whether enough time has passed since the button was pressed last timme
+    """
     lvl = 5
     max_lvl = 10
     time_passed = 0
@@ -25,6 +47,9 @@ class Characteristics:
 
 
 def draw_goose_renaming():
+    """
+    function that makes a window in which new name for the goose might be entered
+    """
     root = Tk()
     root.geometry(str(RENAME_WIDTH) + "x" + str(RENAME_HEIGHT))
     root["bg"] = '#ffb259'  # orange colour
@@ -41,6 +66,26 @@ def draw_goose_renaming():
 
 
 class Goose:
+    """
+    Class of a goose-object which contains all its characteristics and functions to change them
+
+    Attributes
+    -------
+    satiety : Characteristics
+    cleanliness : Characteristics
+    entertainment : Characteristics
+    talk_out : Characteristics
+    parameters : list of all characteristics
+    alive : bool
+
+    Methods
+    -------
+    set_name(str)
+    is_dead():
+        checks whether the goose is dead or alive
+    second_passed():
+        renews goose's parameters each second
+    """
     name = ""
     satiety = Characteristics("Сытость", "Покормить")
     cleanliness = Characteristics("Чистота", "Искупать")
@@ -69,6 +114,20 @@ def rename():
 
 
 class GooseButtons:
+    """
+    The class for all the buttons to change goose parameters
+
+    Attributes
+    -------
+    goose : Goose
+    screen : pygame screen
+    buttons : array of buttons
+
+    Methods
+    -------
+    show():
+        shows all the buttons on the screen
+    """
     def __init__(self, goose_, screen_):
         self.goose = goose_
         self.screen = screen_
@@ -95,6 +154,22 @@ class GooseButtons:
 
 
 class GooseDisplay:
+    """
+    A class printing all the goose's characteristics
+
+    Attributes
+    -------
+    goose : Goose
+    screen : pygame screen
+    labels : list of all goose labels
+
+    Methods
+    -------
+    show():
+        shows all the labels
+    update():
+        when time pass changes the labels
+    """
     def __init__(self, goose_, screen_):
         self.goose = goose_
         self.screen = screen_
