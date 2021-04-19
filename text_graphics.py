@@ -1,8 +1,38 @@
 from colours import *
-from sizes import *
+import pygame
 
 
 class Label:
+    """
+    The Label class.
+
+    Attributes
+    -------
+    typeface : pygame font
+    rect : pygame rectangle
+    colour : (int, int, int)
+    root : pygame screen
+        rgb colour of text
+    bg : (int, int, int)
+        rgb colour for background
+    text : str
+    indent_x : int
+        vertical indent
+    indent_y : int
+        horizontal indent
+
+    Methods
+    -------
+    show():
+        prints the text on the screen
+    show_border():
+        shows border if needed
+    hide():
+        hides the text
+    configure():
+        changes the text on the screen
+
+    """
     def __init__(self, text_, typeface_, rect_, colour_, bg_, indent_x_, indent_y_, root_):
         self.typeface = typeface_
         self.rect = rect_
@@ -35,6 +65,29 @@ class Label:
 
 
 class Button:
+    """
+    The Button class.
+
+    Attributes
+    -------
+    btn_label : Label
+        the button and the text printed
+    btn_function : function
+        the functions which is activated when the button id pressed
+    border_width : int
+    border_colour : (int, int, int)
+        rgb colour of the border
+    active : bool
+        whether the button is activated
+
+    Methods
+    -------
+    activate():
+        show the button and make it active
+    deactivate()
+    press(pygame pos):
+        execute the function if the button is pressed
+    """
     active = False
 
     def __init__(self, btn_label_, btn_function_, border_width_=1, border_colour_ =DARK_GREY):
@@ -54,3 +107,4 @@ class Button:
     def press(self, pos):
         if self.active and self.btn_label.rect.collidepoint(pos):
             self.btn_function()
+
