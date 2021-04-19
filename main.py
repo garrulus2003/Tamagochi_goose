@@ -2,6 +2,7 @@ from welcome import GooseCreation
 from life import *
 import pygame
 import sys
+from sizes import *
 
 
 if __name__ == "__main__":
