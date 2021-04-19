@@ -4,6 +4,16 @@ import pygame
 
 
 def keep_living(clock, goose, goose_buttons, goose_display, screen):
+    """
+    Main loop of the goose life
+
+    :param clock: int
+    :param goose: goose
+    :param goose_buttons: GooseButtons
+    :param goose_display: GooseDisplay
+    :param screen: pygame screen
+    :return:
+    """
     running = True
     while running and goose.alive:
         for i in range(30):
