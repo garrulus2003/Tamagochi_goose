@@ -3,6 +3,36 @@ from sizes import *
 
 
 class GooseCreation:
+    """
+    A class showing a tkinter window of goose creation
+
+    Attributes
+    -------
+    root : tkinter root
+    lbl : tkinter label
+    goose_name : tkinter StringVar()
+    enter_name : tkinter Entry
+        a place to enter the name
+    create_goose_b : tkinter Button
+        a button to press when the name is entered
+    btn_though : tkinter Button
+        a button to press when you finally decide to create a goose
+    btn_yes : tkinter Button
+        a button to press if you want to create a goose
+    btn_no :
+        a button to press if you don't want to create a goose
+
+    Methods
+    -------
+    set_goose():
+        a function that creates the goose and destroys the root
+    create_goose():
+        sets the screen and a place to enter goose name
+    not_creating_goose():
+        sets a screen to create a goose
+    get_goose_name():
+        starts the root
+    """
     # setting a welcome screen
     def set_goose(self):  # returns the name of a goose entered
         self.root.destroy()
