@@ -1,9 +1,8 @@
-from welcome import GooseCreation
 from life import *
 import pygame
 import sys
+from welcome import GooseCreation
 from sizes import *
-
 
 if __name__ == "__main__":
     welcome_screen = GooseCreation()
