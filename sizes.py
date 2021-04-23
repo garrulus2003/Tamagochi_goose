@@ -1,4 +1,5 @@
 import pygame
+
 WIDTH = 400
 HEIGHT = 500
 FPS = 30

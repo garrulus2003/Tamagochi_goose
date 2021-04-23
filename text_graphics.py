@@ -107,4 +107,3 @@ class Button:
     def press(self, pos):
         if self.active and self.btn_label.rect.collidepoint(pos):
             self.btn_function()
-

@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter
 from text_graphics import *
 import pygame
+from sizes import *
 
 pygame.init()
 pygame.mixer.init()
